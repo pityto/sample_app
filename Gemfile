@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'factory_girl_rails', '4.2.1'
 gem 'bootstrap-sass', '2.3.2.0'
 #gem 'bcrypt-ruby', '3.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

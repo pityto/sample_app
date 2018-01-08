@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all
+    @users = User.page params[:page]
   end
 
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+    @microposts = @user.microposts.page params[:page]
   end 
  
   def new
@@ -51,14 +51,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.followed_users
+    @users = @user.followed_users.page params[:page]
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers
+    @users = @user.followers.page params[:page]
     render 'show_follow'
   end
 

@@ -1,4 +1,5 @@
 class Micropost < ApplicationRecord
+  paginates_per 10
   belongs_to :user
   default_scope -> { order('created_at DESC') }
   validates :content, presence: true, length: { maximum: 140 }
